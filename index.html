@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Interest Matcher</title>
+
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://bootswatch.com/yeti/bootstrap.min.css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/sweetalert2/6.0.1/sweetalert2.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/sweetalert2/6.0.1/sweetalert2.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tag-editor/1.0.20/jquery.tag-editor.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tag-editor/1.0.20/jquery.tag-editor.css" />
+    <style>
+        .spinner {
+            margin: 100px auto 0;
+            width: 70px;
+            text-align: center;
+        }
+        .spinner > div {
+            width: 18px;
+            height: 18px;
+            background-color: #333;
+            border-radius: 100%;
+            display: inline-block;
+            -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+            animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+        }
+        .spinner .bounce1 {
+            -webkit-animation-delay: -0.32s;
+            animation-delay: -0.32s;
+        }
+        .spinner .bounce2 {
+            -webkit-animation-delay: -0.16s;
+            animation-delay: -0.16s;
+        }
+        @-webkit-keyframes sk-bouncedelay {
+            0%, 80%, 100% {
+                -webkit-transform: scale(0)
+            }
+            40% {
+                -webkit-transform: scale(1.0)
+            }
+        }
+        @keyframes sk-bouncedelay {
+            0%, 80%, 100% {
+                -webkit-transform: scale(0);
+                transform: scale(0);
+            }
+            40% {
+                -webkit-transform: scale(1.0);
+                transform: scale(1.0);
+            }
+        }
+    </style>
+</head>
+
+<!-- 
+function initMap() {
+  var myLatLng = {lat: 37.402359, lng: -122.133411};
+  var map = new google.maps.Map(document.getElementById('map'), 
+  {
+    zoom: 4,
+    center: myLatLng
+  });
+
+  var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    title: 'Hello World!'
+  });
+} -->
+
+
+<body>
+    <script>
+        // This is called with the results from from FB.getLoginStatus().
+        function showResults(){
+
+            
+            $("#result").append("<br><br><br><br>")
+                    for(i=0;i<people.length;i++){
+
+
+                            $("#profile").hide()
+                            $("#result").append("<p><strong>Name: "+people[i].name+"</p></strong>")
+                            $("#result").append("<p>School: "+people[i].school+"</p>")
+                            $("#result").append("<p>Grade: "+people[i].grade+"</p>")
+                            $("#result").append("<p>Interests: "+people[i].interests+"</p>")
+                            $("#result").append("<iframe width='600' height='450' frameborder='0' style='border:0' src='"+people[i].url+"'"+"</iframe><br><br>")
+                            $("#result").append("<form action='https://www.facebook.com/messages/epicshaunak'><input type='submit' class='btn btn-info'value='Click to Chat' /></form><br><br>")
+                           
+
+
+                        
+                    }
+
+                }
+        var people=[
+{
+"school":"Wilcox High School",
+"grade":"9th",
+"name":"Shaunak Kale",
+"interests":["math","hacking","robotics","tennis"],
+"url":"https://www.google.com/maps/embed/v1/place?key=AIzaSyDJbn1DcXOPgXbwm386I7DIsk8IOzMDWYw&q=Wilcox+High+School"
+},
+{
+"school":"Santa Clara High School",
+"grade":"11th",
+"name":"Sami Acouche",
+"interests":["math","robotics","football","debate"],
+"url":"https://www.google.com/maps/embed/v1/place?key=AIzaSyDJbn1DcXOPgXbwm386I7DIsk8IOzMDWYw&q=Santa+Clara+High+School"
+},
+{
+"school":"King's Academy",
+"grade":"10th",
+"name":"Christopher Wang",
+"interests":["math","badminton","swimming","Japanese"],
+"url":"https://www.google.com/maps/embed/v1/place?key=AIzaSyDJbn1DcXOPgXbwm386I7DIsk8IOzMDWYw&q=Kings+Academy"
+},
+{
+"school":"Fremont High School",
+"grade":"11th",
+"name":"Jackie Navarro",
+"interests":["drama","swimming","robotics","math"],
+"url":"https://www.google.com/maps/embed/v1/place?key=AIzaSyDJbn1DcXOPgXbwm386I7DIsk8IOzMDWYw&q=Fremont+High+School"
+},
+{
+"school":"Santa Clara High School",
+"grade":"10th",
+"name":"Samuel Lee",
+"interests":["hacking","math","robotics","anime"],
+"url":"https://www.google.com/maps/embed/v1/place?key=AIzaSyDJbn1DcXOPgXbwm386I7DIsk8IOzMDWYw&q=Santa+Clara+High+School"
+},
+{
+"school":"Gunn High School",
+"grade":"11th",
+"name":"Abigail Johnson",
+"interests":["math","robotics","hacking","chess"],
+"url":"https://www.google.com/maps/embed/v1/place?key=AIzaSyDJbn1DcXOPgXbwm386I7DIsk8IOzMDWYw&q=Gunn+High+School"
+},
+{
+"school":"Fremont High School",
+"grade":"10th",
+"name":"Trevon Lewis",
+"interests":["math","hacking","robotics","baseball"],
+"url":"https://www.google.com/maps/embed/v1/place?key=AIzaSyDJbn1DcXOPgXbwm386I7DIsk8IOzMDWYw&q=Fremont+High+School"
+},
+{
+"school":"Gunn High School",
+"grade":"9th",
+"name":"Abraham Miller",
+"interests":["robotics","math","fencing","poetry"],
+"url":"https://www.google.com/maps/embed/v1/place?key=AIzaSyDJbn1DcXOPgXbwm386I7DIsk8IOzMDWYw&q=Gunn+High+School"
+},
+{
+"school":"Gunn High School",
+"grade":"10th",
+"name":"Patricia Kwok",
+"interests":["math","hacking","robotics","business"],
+"url":"https://www.google.com/maps/embed/v1/place?key=AIzaSyDJbn1DcXOPgXbwm386I7DIsk8IOzMDWYw&q=Gunn+High+School"
+}
+
+]
+
+        
+        $(document).ready(function() {
+
+            $("#confirmcode").hide()
+            $("#interests").hide()
+            $("#find").hide()
+          
+                
+            $('#tags').tagEditor({
+                delimiter: ', ',
+                /* space and comma */
+                placeholder: 'Enter tags ...'
+            });
+            $("#codeSubmit").click(
+                function() {
+                    swal("Success!", "Your confirmation code is correct", "success")
+                }
+            )
+            $("#listInterests").click(
+                function() {
+                    $("#findPage").removeClass("active")
+                    $("#find").hide()
+                    $("#startPage").hide()
+                    $("#homePage").removeClass("active")
+                    $("#interestPage").addClass("active")
+                    $("#interests").show()
+                }
+            )
+            $("#homeAnchor").click(
+                function() {
+                    $("#findPage").removeClass("active")
+                    $("#find").hide()
+                    $("#interestPage").removeClass("active")
+                    $("#homePage").addClass("active")
+                    $("#interests").hide()
+                    $("#startPage").show()
+                    
+                }
+            )
+             $("#submitTags").click(
+                function() {
+                var tags=$('#tags').tagEditor('getTags')[0].tags 
+                $("#profile").append("<p>Your Interests</p>")
+                for(i=0;i<tags.length;i++){
+                    $("#profile").append("<button class='btn btn-default'>"+(i+1)+". "+tags[i]+"  <input type='checkbox'/></button><br><br>")
+                }
+                     $("#profile").append ("<button onclick='showResults()' class='btn btn-success'>Find Others</button>")
+
+                }
+            )
+            $("#submitTags").click(
+                function() {
+                    swal("Success", "Your interests have been added!", "success")
+                }
+            )
+
+            $("#findOthers").click(
+                function() {
+                    $("#startPage").hide()
+                    $("#interestPage").removeClass("active")
+                    $("#homePage").removeClass("active")
+                    $("#interests").hide()
+                    $("#findPage").addClass("active")
+                    $("#find").show()
+                    $("#profile").hide()
+                    $("#loading").show()
+                    setInterval(
+                        function() {
+                            $("#profile").show()
+                            $("#loading").hide()
+                        },
+                        5000
+                    )
+                }
+            )
+        })
+
+        function begin() {
+            swal({
+                title: 'Input email address',
+                html: 'This email must be a school email',
+                input: 'email',
+                type: 'info',
+            }).then(function(email) {
+                $.get( "http://localhost:8080", function() {
+
+                });
+                swal({
+                    type: 'success',
+                    html: 'You entered ' + email + ":<br>A confirmation email should have been sent to this address",
+                    onClose: 'confirmcode()'
+                })
+
+            })
+            $("#begintext").hide()
+            $("#confirmcode").show()
+        }
+
+        function statusChangeCallback(response) {
+            console.log('statusChangeCallback');
+            console.log(response);
+            // The response object is returned with a status field that lets the
+            // app know the current login status of the person.
+            // Full docs on the response object can be found in the documentation
+            // for FB.getLoginStatus().
+            if (response.status === 'connected') {
+                // Logged into your app and Facebook.
+                loggedIn();
+            } else if (response.status === 'not_authorized') {
+                // The person is logged into Facebook, but not your app.
+
+            } else {
+                // The person is not logged into Facebook, so we're not sure if
+                // they are logged into this app or not.
+
+            }
+        }
+
+        // This function is called when someone finishes with the Login
+        // Button.  See the onlogin handler attached to it in the sample
+        // code below.
+        function checkLoginState() {
+            FB.getLoginStatus(function(response) {
+                statusChangeCallback(response);
+            });
+        }
+
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId: '1819922121622745',
+                cookie: true, // enable cookies to allow the server to access 
+                // the session
+                xfbml: true, // parse social plugins on this page
+                version: 'v2.8' // use graph api version 2.8
+            });
+
+            // Now that we've initialized the JavaScript SDK, we call 
+            // FB.getLoginStatus().  This function gets the state of the
+            // person visiting this page and can return one of three states to
+            // the callback you provide.  They can be:
+            //
+            // 1. Logged into your app ('connected')
+            // 2. Logged into Facebook, but not your app ('not_authorized')
+            // 3. Not logged into Facebook and can't tell if they are logged into
+            //    your app or not.
+            //
+            // These three cases are handled in the callback function.
+
+            FB.getLoginStatus(function(response) {
+                statusChangeCallback(response);
+            });
+
+        };
+
+        // Load the SDK asynchronously
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+        // Here we run a very simple test of the Graph API after login is
+        // successful.  See statusChangeCallback() for when this call is made.
+        function loggedIn() {
+            //Whatever you want to do after logged in
+        }
+    </script>
+    <!--
+  Below we include the Login Button social plugin. This button uses
+  the JavaScript SDK to present a graphical Login button that triggers
+  the FB.login() function when clicked.
+-->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">matchHS</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active" id="homePage"><a id="homeAnchor" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li id="interestPage"><a id="listInterests" href="#">List Interests</a>
+                    </li>
+                    <li id="findPage"><a id="findOthers" href="#">Find Matches</a>
+                    </li>
+
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li>
+                        <div style="margin-top:10px" class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="true"></div>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <div id="startPage">
+        <div id="begintext">
+            <p style="margin-left:2.5%">To get started, log into Facebook, then click "Begin" find people with your interests</p>
+            <button style="margin-left:2.5%" onclick="begin()" class="btn btn-success">Begin</button>
+            <div id="status">
+            </div>
+        </div>
+        <div id="confirmcode">
+            <p>Please enter the confirmation code that was just sent to you</p>
+            <input type="text" />
+            <button id="codeSubmit" class="btn btn-info">Submit</button>
+        </div>
+    </div>
+    <div style="margin-left:2.5%" id="interests">
+        <p>What are your interests?</p>
+        <textarea rows="3" cols="100" id="tags"></textarea/>
+        <br>
+        <button id="submitTags" class="btn btn-success">Submit</button>
+    </div>
+    <div style="margin-left:2.5%" id="find">
+        <p>Profile Information:</p>
+
+        <div id="loading">
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+
+            <p align="center">Loading from Facebook</p>
+            </div>
+            <div id="profile">
+
+           
+    <table class="table table-striped">
+        <tr>
+            <td>My Name</td>
+            <td>Nikhil Mandava</td>
+          </tr>
+        <tr>
+            <td>My School</td>
+            <td>Adrian Wilcox High School</td>
+         </tr>
+         <tr>
+            <td>My Grade</td>
+           <td>11th</td>
+        </tr>
+  </table>
+        </div>
+
+
+
+<!-- <p> Need to have list of interests here and checkboxes right below... (DATABASE) </p>
+<p> math   computers</p>
+<form>
+    <input type="checkbox" id="cbox1" value="first_checkbox"> Click to Select</input>
+    <input type="checkbox" id="cbox2" value="second_checkbox"> Click to select</form>
+</form>
+<p>Button Find and google maps right underneath...algorithm and pins of nearby similar ppl show</p>
+<p> list of ppl with chat button right next</p>
+<!-- <form action="https://www.facebook.com/messages/shaunak.kale" target="_blank">
+    <input type="submit" value="Click to Chat" />
+</form> --> 
+<div id="result"></div>
+</div>
+
+
+
+    
+</body>
+
+
+
+</html>
